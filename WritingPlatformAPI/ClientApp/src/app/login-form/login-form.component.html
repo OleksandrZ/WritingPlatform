@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-6">
+      <h2>Please enter your information</h2>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+        <form #f="ngForm" novalidate (ngSubmit)="login(f.value)">
+            <div class="form-group">
+                <label for="username">First name</label>
+                <input type="text" class="form-control" id="username" placeholder="User name" [(ngModel)]="user.username" #username="ngModel" required minlength="4"> 
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Password" [(ngModel)]="user.password" #password="ngModel" required minlength="8">
+              <div [hidden]="password.valid || password.untouched" class="alert alert-danger">
+                Не корректный пароль
+              </div>  
+            </div>   
+  
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </div>           
+            
+          </form>
+     </div>
+  </div>
